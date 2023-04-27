@@ -1,0 +1,27 @@
+CREATE TABLE groceries (id INTEGER PRIMARY KEY, name TEXT, color TEXT, price INTEGER, aisle INTEGER);
+
+INSERT INTO groceries VALUES (1, "cilantro", "green", 1, 2);
+INSERT INTO groceries VALUES (2, "apples", "red", 1, 2);
+INSERT INTO groceries VALUES (3, "potatoes", "brown", 2, 2);
+INSERT INTO groceries VALUES (4, "lemons", "yellow", 1, 2);
+INSERT INTO groceries VALUES (5, "laundry detergent", "blue", 6, 8);
+INSERT INTO groceries VALUES (6, "eggs", "white", 3, 5);
+INSERT INTO groceries VALUES (7, "coffee", "brown", 4, 7);
+INSERT INTO groceries VALUES (8, "milk", "white", 3, 5);
+INSERT INTO groceries VALUES (9, "cheese", "yellow", 2, 5);
+INSERT INTO groceries VALUES (10, "bell pepper", "green", 2, 2);
+INSERT INTO groceries VALUES (11, "bagels", "brown", 2, 9);
+INSERT INTO groceries VALUES (12, "peanut butter", "brown", 2, 4);
+INSERT INTO groceries VALUES (13, "tomatoes", "red", 2,2);
+INSERT INTO groceries VALUES (14, "dog food", "brown", 54, 10);
+INSERT INTO groceries VALUES (15, "greek yogurt", "white", 3, 5);
+
+- display the database ordered by price
+SELECT * FROM groceries ORDER BY price;
+
+- display the database showing what grocery items are located in aisles greater than 6
+SELECT * FROM groceries WHERE aisle > 5;
+
+- what is the total price of grocery items ordered by aisle
+SELECT aisle, SUM(price) FROM groceries GROUP BY aisle;
+
