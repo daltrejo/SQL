@@ -1,0 +1,30 @@
+CREATE TABLE authors (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname TEXT, age INTEGER, birthplace TEXT);
+INSERT INTO authors(fullname, age, birthplace) VALUES ("Colleen Hoover",43,"Sulphur Springs");
+INSERT INTO authors(fullname, age, birthplace) VALUES ("Stephanie Meyer",49,"Hartford");
+INSERT INTO authors(fullname, age, birthplace) VALUES ("Stephen King",75,"Portland");
+INSERT INTO authors(fullname, age, birthplace) VALUES ("J.K. Rowling", 57, "Yate");
+INSERT INTO authors(fullname, age, birthplace) VALUES ("Claudia Gray",52,"New York");
+INSERT INTO authors(fullname, age, birthplace) VALUES ("Tony Morrison",92,"Lorain");
+
+
+CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, year_published INTEGER, genre TEXT);
+INSERT INTO books(title, year_published,genre) VALUES ("It Ends With Us", 2016, "romance");
+INSERT INTO books(title, year_published, genre) VALUES ("Twilight", 2005, "young adult fiction/romance");
+INSERT INTO books(title, year_published, genre) VALUES ("The Shining", 1977, "horror fiction");
+INSERT INTO books(title, year_published, genre) VALUES ("Harry Potter and the sorcerer's stone", 1997, "fantasy fiction");
+INSERT INTO books(title, year_published, genre) VALUES ("Evernight", 2008, "fantasy fiction");
+INSERT INTO books(title, year_published, genre) VALUES ("Sula", 1973, "fiction");
+
+
+/*Select both tables with a join to display each author's full name with the the title of their book*/
+SELECT authors.fullname, books.title
+FROM authors
+JOIN books
+ON authors.id = books.id;
+
+/*Display the authors fullname, along with their book title, and the year the book was published starting from the oldest year published to the most recent year published*/
+SELECT authors.fullname, books.title, books.year_published
+FROM authors
+LEFT OUTER JOIN books
+ON authors.id = books.id
+ORDER BY year_published ASC;
